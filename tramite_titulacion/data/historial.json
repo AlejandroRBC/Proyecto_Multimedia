@@ -1,0 +1,356 @@
+[
+    {
+        "tramite": 1,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-14 05:56:39"
+    },
+    {
+        "tramite": 2,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-14 05:57:13"
+    },
+    {
+        "tramite": 3,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-14 05:57:30"
+    },
+    {
+        "tramite": 4,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-14 05:57:50"
+    },
+    {
+        "tramite": 4,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-14 05:57:52"
+    },
+    {
+        "tramite": 4,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-14 05:58:13"
+    },
+    {
+        "tramite": 5,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-14 06:00:09"
+    },
+    {
+        "tramite": 4,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-14 06:01:53"
+    },
+    {
+        "tramite": 4,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: falta informe de decanato",
+        "fecha": "2026-06-14 06:02:27"
+    },
+    {
+        "tramite": 4,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-14 06:02:46"
+    },
+    {
+        "tramite": 4,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-14 06:02:55"
+    },
+    {
+        "tramite": 4,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-14 06:05:30"
+    },
+    {
+        "tramite": 4,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-14 07:56:41"
+    },
+    {
+        "tramite": 4,
+        "estado": "APROBADO",
+        "nota": "Funcionario aprobó documentación",
+        "fecha": "2026-06-14 07:56:50"
+    },
+    {
+        "tramite": 4,
+        "estado": "FIRMADO",
+        "nota": "Autoridad firmó el Título Profesional",
+        "fecha": "2026-06-14 21:01:19"
+    },
+    {
+        "tramite": 4,
+        "estado": "ENTREGADO",
+        "nota": "Título Profesional entregado al graduado",
+        "fecha": "2026-06-14 21:01:23"
+    },
+    {
+        "tramite": 6,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 09:32:18"
+    },
+    {
+        "tramite": 6,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-15 09:33:11"
+    },
+    {
+        "tramite": 7,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 09:33:51"
+    },
+    {
+        "tramite": 7,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-15 09:34:04"
+    },
+    {
+        "tramite": 6,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 09:35:18"
+    },
+    {
+        "tramite": 6,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: falta sobre,informe de decanato y servicio rural ",
+        "fecha": "2026-06-15 09:36:22"
+    },
+    {
+        "tramite": 6,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-15 09:36:45"
+    },
+    {
+        "tramite": 7,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 09:37:10"
+    },
+    {
+        "tramite": 7,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: falta todo",
+        "fecha": "2026-06-15 09:37:40"
+    },
+    {
+        "tramite": 7,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-15 09:39:53"
+    },
+    {
+        "tramite": 8,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 09:50:07"
+    },
+    {
+        "tramite": 8,
+        "estado": "BORRADOR",
+        "nota": "Trámite actualizado por el estudiante",
+        "fecha": "2026-06-15 09:50:34"
+    },
+    {
+        "tramite": 8,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 10:14:05"
+    },
+    {
+        "tramite": 8,
+        "estado": "BORRADOR",
+        "nota": "Trámite actualizado por el estudiante",
+        "fecha": "2026-06-15 10:34:19"
+    },
+    {
+        "tramite": 8,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-15 10:34:42"
+    },
+    {
+        "tramite": 9,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 10:35:09"
+    },
+    {
+        "tramite": 8,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 10:36:58"
+    },
+    {
+        "tramite": 8,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: asdasd",
+        "fecha": "2026-06-15 10:37:08"
+    },
+    {
+        "tramite": 6,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 10:37:10"
+    },
+    {
+        "tramite": 6,
+        "estado": "APROBADO",
+        "nota": "Funcionario aprobó documentación",
+        "fecha": "2026-06-15 10:37:18"
+    },
+    {
+        "tramite": 8,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-15 10:43:08"
+    },
+    {
+        "tramite": 9,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante",
+        "fecha": "2026-06-15 11:27:09"
+    },
+    {
+        "tramite": 9,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 11:41:56"
+    },
+    {
+        "tramite": 9,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: aasdsadsdasddasdasd",
+        "fecha": "2026-06-15 11:42:16"
+    },
+    {
+        "tramite": 9,
+        "estado": "BORRADOR",
+        "nota": "Trámite actualizado por el estudiante",
+        "fecha": "2026-06-15 11:43:26"
+    },
+    {
+        "tramite": 7,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 11:47:44"
+    },
+    {
+        "tramite": 8,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión",
+        "fecha": "2026-06-15 11:49:20"
+    },
+    {
+        "tramite": 10,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 12:05:11"
+    },
+    {
+        "tramite": 10,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante (enlaces)",
+        "fecha": "2026-06-15 12:05:25"
+    },
+    {
+        "tramite": 10,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión documental",
+        "fecha": "2026-06-15 12:06:52"
+    },
+    {
+        "tramite": 7,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: dasdas",
+        "fecha": "2026-06-15 12:07:54"
+    },
+    {
+        "tramite": 6,
+        "estado": "FIRMADO",
+        "nota": "Autoridad firmó el Título Profesional",
+        "fecha": "2026-06-15 12:09:05"
+    },
+    {
+        "tramite": 6,
+        "estado": "ENTREGADO",
+        "nota": "Título Profesional entregado al graduado",
+        "fecha": "2026-06-15 12:09:10"
+    },
+    {
+        "tramite": 11,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 13:20:10"
+    },
+    {
+        "tramite": 12,
+        "estado": "BORRADOR",
+        "nota": "Trámite creado por el estudiante",
+        "fecha": "2026-06-15 13:20:41"
+    },
+    {
+        "tramite": 12,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Documentos enviados por el estudiante (enlaces)",
+        "fecha": "2026-06-15 13:21:07"
+    },
+    {
+        "tramite": 6,
+        "estado": "PENDIENTE_REVISION",
+        "nota": "Estudiante subsanó observaciones y reenvió a revisión",
+        "fecha": "2026-06-15 13:21:22"
+    },
+    {
+        "tramite": 6,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión documental",
+        "fecha": "2026-06-15 13:21:43"
+    },
+    {
+        "tramite": 12,
+        "estado": "REVISION_DOCUMENTAL",
+        "nota": "Funcionario inició revisión documental",
+        "fecha": "2026-06-15 13:21:55"
+    },
+    {
+        "tramite": 12,
+        "estado": "APROBADO",
+        "nota": "Funcionario aprobó documentación",
+        "fecha": "2026-06-15 13:22:09"
+    },
+    {
+        "tramite": 6,
+        "estado": "APROBADO",
+        "nota": "Funcionario aprobó documentación",
+        "fecha": "2026-06-15 13:29:28"
+    },
+    {
+        "tramite": 8,
+        "estado": "OBSERVADO",
+        "nota": "Funcionario observó: no tiene nada",
+        "fecha": "2026-06-15 13:29:39"
+    },
+    {
+        "tramite": 6,
+        "estado": "OBSERVADO",
+        "nota": "Autoridad rechazó el trámite: Documentación incompleta o ilegible",
+        "fecha": "2026-06-15 13:30:17"
+    }
+]

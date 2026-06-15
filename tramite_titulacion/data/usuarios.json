@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "usuario": "admin",
+        "password": "123",
+        "nombre": "Administrador Sistema",
+        "rol": "ADMIN",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 2,
+        "usuario": "juan",
+        "password": "123",
+        "nombre": "Juan Pérez Mamani",
+        "rol": "ESTUDIANTE",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 3,
+        "usuario": "funcionario",
+        "password": "123",
+        "nombre": "María Flores López",
+        "rol": "FUNCIONARIO",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 4,
+        "usuario": "autoridad",
+        "password": "123",
+        "nombre": "Rector UMSA",
+        "rol": "AUTORIDAD",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 5,
+        "usuario": "rodrigo",
+        "password": "123",
+        "nombre": "joel rodrigo marca cordova",
+        "rol": "ESTUDIANTE",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 6,
+        "usuario": "pedro",
+        "password": "123",
+        "nombre": "pedro fernandez",
+        "rol": "ESTUDIANTE",
+        "estado": "ACTIVO"
+    }
+]
