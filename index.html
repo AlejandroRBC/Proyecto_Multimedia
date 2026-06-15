@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Multimedia</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f5f7fa;
@@ -22,23 +28,26 @@
             align-items: center;
             padding: 0 24px;
             height: 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
             position: sticky;
             top: 0;
             z-index: 100;
             flex-shrink: 0;
         }
+
         .navbar .brand {
             font-size: 18px;
             font-weight: 700;
             margin-right: 32px;
             white-space: nowrap;
         }
+
         .navbar .tabs {
             display: flex;
             gap: 4px;
             height: 100%;
         }
+
         .navbar .tab {
             padding: 0 20px;
             height: 100%;
@@ -47,18 +56,27 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255, 255, 255, 0.65);
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
             user-select: none;
         }
-        .navbar .tab:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+        .navbar .tab:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
         .navbar .tab.active {
             color: #fff;
             border-bottom-color: #4fc3f7;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
-        .tab-icon { margin-right: 8px; font-size: 18px; }
+
+        .tab-icon {
+            margin-right: 8px;
+            font-size: 18px;
+        }
 
         /* Content */
         .content {
@@ -66,10 +84,12 @@
             display: flex;
             flex-direction: column;
         }
+
         .tab-content {
             display: none;
             flex: 1;
         }
+
         .tab-content.active {
             display: flex;
             flex-direction: column;
@@ -99,6 +119,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="brand">🎬 Proyecto Multimedia</div>
@@ -128,7 +149,7 @@
 
         <!-- TramiteBeca -->
         <div class="tab-content" id="tab-tramitebeca">
-            <iframe src="TramiteBeca/flujo.html" title="TramiteBeca"></iframe>
+            <iframe src="TramiteBeca/DiagramaFlujo.html" title="TramiteBeca"></iframe>
         </div>
     </div>
 
@@ -145,4 +166,5 @@
         });
     </script>
 </body>
+
 </html>
