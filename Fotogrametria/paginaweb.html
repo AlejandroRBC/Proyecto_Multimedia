@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea de Fotogrametría 3D</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Configuración del tamaño del visor 3D */
+        model-viewer {
+            width: 80%;
+            height: 70vh;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Resultado de Fotogrametría 3D</h1>
+    <p>Usa el ratón para rotar y la rueda para hacer zoom</p>
+
+    <model-viewer src="mi_modelo.glb" ar camera-controls touch-action="pan-y" shadow-intensity="1">
+    </model-viewer>
+
+</body>
+
+</html>

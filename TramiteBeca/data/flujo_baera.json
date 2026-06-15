@@ -1,0 +1,112 @@
+{
+    "flujo": "BAERA",
+    "nombre": "Trámite de Beca BAERA",
+    "procesos": [
+        {
+            "id": "P1",
+            "nombre": "Verificar estudiante",
+            "descripcion": "Verificar identidad del postulante",
+            "rol": "Estudiante",
+            "pantalla": "pantallas/01_verificar_estudiante",
+            "siguiente": "P2"
+        },
+        {
+            "id": "P2",
+            "nombre": "Datos socioeconómicos",
+            "descripcion": "Registrar información socioeconómica",
+            "rol": "Estudiante",
+            "pantalla": "pantallas/02_datos_socioeconomicos",
+            "siguiente": "P3"
+        },
+        {
+            "id": "P3",
+            "nombre": "Adjuntar documentos",
+            "descripcion": "Adjuntar documentación requerida",
+            "rol": "Estudiante",
+            "pantalla": "pantallas/03_adjuntar_documentos",
+            "siguiente": "P4"
+        },
+        {
+            "id": "P4",
+            "nombre": "Revisión documental",
+            "descripcion": "Revisar documentación del postulante",
+            "rol": "Bienestar Social",
+            "pantalla": "pantallas/04_revision_documental",
+            "siguiente": "P5"
+        },
+        {
+            "id": "P5",
+            "nombre": "Programar entrevista",
+            "descripcion": "Asignación automática de entrevista",
+            "rol": "Sistema",
+            "pantalla": null,
+            "siguiente": "P6"
+        },
+        {
+            "id": "P6",
+            "nombre": "Entrevista trabajo social",
+            "descripcion": "Realizar entrevista socioeconómica",
+            "rol": "Trabajador Social",
+            "pantalla": "pantallas/06_entrevista_trabajo_social",
+            "siguiente": "P7"
+        },
+        {
+            "id": "P7",
+            "nombre": "Control nutricional",
+            "descripcion": "Evaluación nutricional del postulante",
+            "rol": "Nutricionista",
+            "pantalla": "pantallas/07_control_nutricional",
+            "siguiente": "P8"
+        },
+        {
+            "id": "P8",
+            "nombre": "Comité BAERA",
+            "descripcion": "Decisión final del comité",
+            "rol": "Comité BAERA",
+            "pantalla": "pantallas/08_comite_baera",
+            "siguiente": null
+        },
+        {
+            "id": "P9",
+            "nombre": "Notificar aprobado",
+            "descripcion": "Notificar al estudiante aprobado",
+            "rol": "Estudiante",
+            "pantalla": "pantallas/09_notificacion_aprobado",
+            "siguiente": null
+        },
+        {
+            "id": "P10",
+            "nombre": "Notificar rechazado",
+            "descripcion": "Notificar al estudiante rechazado",
+            "rol": "Estudiante",
+            "pantalla": "pantallas/10_notificacion_rechazado",
+            "siguiente": null
+        }
+    ],
+    "condiciones": [
+        {
+            "proceso": "P4",
+            "nombre": "Documentación aprobada",
+            "decision": "aprobar",
+            "proceso_destino": "P5"
+        },
+        {
+            "proceso": "P4",
+            "nombre": "Documentación observada",
+            "decision": "observar",
+            "proceso_destino": "P3"
+        },
+        {
+            "proceso": "P8",
+            "nombre": "Beca aprobada",
+            "decision": "aprobar",
+            "proceso_destino": "P9"
+        },
+        {
+            "proceso": "P8",
+            "nombre": "Beca rechazada",
+            "decision": "rechazar",
+            "proceso_destino": "P10"
+        }
+    ]
+}

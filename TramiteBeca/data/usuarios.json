@@ -1,0 +1,32 @@
+[
+    {
+        "usuario": "estudiante",
+        "password": "$2y$10$ZmHVTHzOlAaSXqJNUL7cbOPrJI70e9u/PxOoa8nPsW7NjrSXlr9Na",
+        "nombre": "Juan Pérez",
+        "rol": "Estudiante"
+    },
+    {
+        "usuario": "bienestar",
+        "password": "$2y$10$VhTvBgCP3AkyL24xbxZaLuSPB2oy7e2zrjiCXVCLCthlAaKfyrs6S",
+        "nombre": "Lic. María García",
+        "rol": "Bienestar Social"
+    },
+    {
+        "usuario": "trabajador",
+        "password": "$2y$10$qGg/Oucx4bDHYIZBDkE9eeg17vNyMKsWgfXzUlWy3RHWr0T3ARwSq",
+        "nombre": "Lic. Carlos López",
+        "rol": "Trabajador Social"
+    },
+    {
+        "usuario": "nutricionista",
+        "password": "$2y$10$cXhV/WeTUvuMaTjwdPE0.evmXD/FF7IfeERgmlvi7qg1sN1gDV5ge",
+        "nombre": "Dra. Ana Martínez",
+        "rol": "Nutricionista"
+    },
+    {
+        "usuario": "comite",
+        "password": "$2y$10$0V6dlyFTaLDBaOdiAsgjrutQ7fjjFBjJqAFnH/uBI7gXftWF4nSbS",
+        "nombre": "Dr. Roberto Vargas",
+        "rol": "Comité BAERA"
+    }
+]

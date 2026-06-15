@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Multimedia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #1a1a2e;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+        .navbar .brand {
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 32px;
+            white-space: nowrap;
+        }
+        .navbar .tabs {
+            display: flex;
+            gap: 4px;
+            height: 100%;
+        }
+        .navbar .tab {
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.65);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .navbar .tab:hover { color: #fff; background: rgba(255,255,255,0.08); }
+        .navbar .tab.active {
+            color: #fff;
+            border-bottom-color: #4fc3f7;
+            background: rgba(255,255,255,0.05);
+        }
+        .tab-icon { margin-right: 8px; font-size: 18px; }
+
+        /* Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-content {
+            display: none;
+            flex: 1;
+        }
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Iframe */
+        .tab-content iframe {
+            width: 100%;
+            flex: 1;
+            border: none;
+            background: #fff;
+        }
+
+        /* Ajuste especial para Unity (fondo oscuro) */
+        .tab-content.unity-content {
+            background: #1a1a2e;
+        }
+
+        /* Loading placeholder */
+        .loading-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: #999;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">🎬 Proyecto Multimedia</div>
+        <div class="tabs">
+            <div class="tab active" data-tab="unity">
+                <span class="tab-icon">🎮</span> Baile Sincronizado
+            </div>
+            <div class="tab" data-tab="fotogrametria">
+                <span class="tab-icon">🏛️</span> Fotogrametría 3D
+            </div>
+            <div class="tab" data-tab="tramitebeca">
+                <span class="tab-icon">📋</span> TramiteBeca
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <!-- Unity -->
+        <div class="tab-content active unity-content" id="tab-unity">
+            <iframe src="Baile Sincronizado/index.html" title="Baile Sincronizado" allowfullscreen></iframe>
+        </div>
+
+        <!-- Fotogrametria -->
+        <div class="tab-content" id="tab-fotogrametria">
+            <iframe src="Fotogrametria/paginaweb.html" title="Fotogrametría 3D"></iframe>
+        </div>
+
+        <!-- TramiteBeca -->
+        <div class="tab-content" id="tab-tramitebeca">
+            <iframe src="TramiteBeca/flujo.html" title="TramiteBeca"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+
+                tab.classList.add('active');
+                const tabName = tab.dataset.tab;
+                document.getElementById('tab-' + tabName).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
