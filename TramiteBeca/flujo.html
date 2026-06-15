@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flujo - TramiteBeca</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -29,10 +28,14 @@
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            padding: 30px 20px 10px;
+            padding: 20px;
             max-width: 1100px;
             width: 100%;
-            overflow-x: auto;
+            overflow: auto;
+        }
+        .diagram-container .mxgraph {
+            border: none !important;
+            max-width: 100%;
         }
         .info-cards {
             display: grid;
@@ -74,156 +77,72 @@
         .badge-success { background: #d5f5e3; color: #27ae60; }
         .badge-danger { background: #fadbd8; color: #e74c3c; }
         @media (max-width: 600px) {
-            .diagram-container { padding: 15px 10px; }
+            .diagram-container { padding: 10px; }
             h1 { font-size: 20px; }
         }
     </style>
 </head>
 <body>
     <h1>Diagrama de Flujo — TramiteBeca</h1>
-    <p class="subtitle">Proceso de solicitud y aprobación de becas BAERA</p>
+    <p class="subtitle">Proceso de solicitud y aprobacion de becas BAERA</p>
 
     <div class="diagram-container">
-        <pre class="mermaid">
-flowchart TD
-    INICIO([Inicio]) --> P1
-
-    subgraph Estudiante["👤 Estudiante"]
-        direction TB
-        P1["P1 - Registro del postulante&lt;br&gt;CI, RU, nombres, carrera, facultad"]
-        P2["P2 - Datos socioeconómicos&lt;br&gt;dirección, ingresos, vivienda, etc."]
-        P3["P3 - Adjuntar documentos&lt;br&gt;11 documentos requeridos"]
-    end
-
-    subgraph Bienestar["🔍 Bienestar Social"]
-        P4["P4 - Revisión documental&lt;br&gt;checklist por documento&lt;br&gt;Correcto / Observado"]
-    end
-
-    subgraph Auto["⚙️ Sistema"]
-        P5["P5 - Programar entrevista&lt;br&gt;asignación automática +1 día"]
-    end
-
-    subgraph Trabajo["🤝 Trabajador Social"]
-        P6["P6 - Entrevista socioeconómica&lt;br&gt;evaluación social y recomendación"]
-    end
-
-    subgraph Nutricion["🥗 Nutricionista"]
-        P7["P7 - Control nutricional&lt;br&gt;peso, talla, IMC, diagnóstico"]
-    end
-
-    subgraph Comite["📋 Comité BAERA"]
-        P8["P8 - Decisión final&lt;br&gt;revisa informes consolidados"]
-    end
-
-    subgraph Final["🏁 Resultado"]
-        P9["P9 - Beca aprobada&lt;br&gt;Notificación al estudiante"]
-        P10["P10 - Beca rechazada&lt;br&gt;Notificación al estudiante"]
-    end
-
-    P1 -->|siguiente| P2
-    P2 -->|siguiente| P3
-    P3 -->|siguiente| P4
-    P4 -->|aprobado| P5
-    P4 -->|observado| P3
-    P5 -->|auto| P6
-    P6 -->|siguiente| P7
-    P7 -->|siguiente| P8
-    P8 -->|aprobado| P9
-    P8 -->|rechazado| P10
-    P9 --> FIN([Fin])
-    P10 --> FIN
-
-    style INICIO fill:#1a1a2e,color:#fff,stroke:#1a1a2e,stroke-width:2px
-    style FIN fill:#1a1a2e,color:#fff,stroke:#1a1a2e,stroke-width:2px
-    style P1 fill:#e8f4fd,stroke:#2980b9,stroke-width:2px
-    style P2 fill:#e8f4fd,stroke:#2980b9,stroke-width:2px
-    style P3 fill:#e8f4fd,stroke:#2980b9,stroke-width:2px
-    style P4 fill:#fef9e7,stroke:#f39c12,stroke-width:2px
-    style P5 fill:#e8f8f5,stroke:#1abc9c,stroke-width:2px
-    style P6 fill:#f5eef8,stroke:#9b59b6,stroke-width:2px
-    style P7 fill:#f5eef8,stroke:#9b59b6,stroke-width:2px
-    style P8 fill:#fdedec,stroke:#e74c3c,stroke-width:2px
-    style P9 fill:#d5f5e3,stroke:#27ae60,stroke-width:2px
-    style P10 fill:#fadbd8,stroke:#e74c3c,stroke-width:2px
-    style Estudiante fill:none,stroke:#2980b9,stroke-width:2px,stroke-dasharray:5 5
-    style Bienestar fill:none,stroke:#f39c12,stroke-width:2px,stroke-dasharray:5 5
-    style Auto fill:none,stroke:#1abc9c,stroke-width:2px,stroke-dasharray:5 5
-    style Trabajo fill:none,stroke:#9b59b6,stroke-width:2px,stroke-dasharray:5 5
-    style Nutricion fill:none,stroke:#9b59b6,stroke-width:2px,stroke-dasharray:5 5
-    style Comite fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray:5 5
-    style Final fill:none,stroke:#27ae60,stroke-width:2px,stroke-dasharray:5 5
-    linkStyle default stroke:#666,stroke-width:2px
-        </pre>
+        <div class="mxgraph" style="max-width:100%;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot;&gt;\n  &lt;diagram name=\&quot;Pagina-1\&quot; id=\&quot;nvzm2SQRjiDC5GNdZn24\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;1717\&quot; dy=\&quot;935\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; /&gt;\n        &lt;UserObject label=\&quot;\&quot; mermaidData=\&quot;{&amp;#xa;  &amp;quot;data&amp;quot;: &amp;quot;flowchart TD\\n    INICIO([Inicio]) --&amp;gt; P1\\n\\n    subgraph Estudiante[\\&amp;quot;Perfil Postulante\\&amp;quot;]\\n        direction TB\\n        P1[\\&amp;quot;P1: Registro Inicial&amp;lt;br&amp;gt;Datos de identidad&amp;lt;br&amp;gt;&amp;lt;i&amp;gt;CI, RU, Nombres, Carrera&amp;lt;/i&amp;gt;\\&amp;quot;]\\n        P2[\\&amp;quot;P2: Datos Socioeconomicos&amp;lt;br&amp;gt;Declaracion de situacion&amp;lt;br&amp;gt;&amp;lt;i&amp;gt;Ingresos, vivienda, direccion&amp;lt;/i&amp;gt;\\&amp;quot;]\\n        P3[\\&amp;quot;P3: Carga Documental&amp;lt;br&amp;gt;Adjuntar requisitos&amp;lt;br&amp;gt;&amp;lt;i&amp;gt;11 documentos escaneados&amp;lt;/i&amp;gt;\\&amp;quot;]\\n    end\\n\\n    subgraph Bienestar[\\&amp;quot;Evaluacion Documental\\&amp;quot;]\\n        P4[\\&amp;quot;P4: Control de Requisitos&amp;lt;br&amp;gt;Validacion por Bienestar Social&amp;lt;br&amp;gt;&amp;lt;i&amp;gt;Correcto / Observado&amp;lt;/i&amp;gt;\\&amp;quot;]\\n    end\\n\\n    subgraph Auto[\\&amp;quot;Asignacion Automatica\\&amp;quot;]\\n        P5[\\&amp;quot;P5: Programar Entrevista&amp;lt;br&amp;gt;Asignacion automatica +1 dia\\&amp;quot;]\\n    end\\n\\n    subgraph Trabajo[\\&amp;quot;Evaluacion Social\\&amp;quot;]\\n        P6[\\&amp;quot;P6: Entrevista Socioeconomica&amp;lt;br&amp;gt;Evaluacion social y recomendacion\\&amp;quot;]\\n    end\\n\\n    subgraph Nutricion[\\&amp;quot;Evaluacion Nutricional\\&amp;quot;]\\n        P7[\\&amp;quot;P7: Control Nutricional&amp;lt;br&amp;gt;Peso, talla, IMC, diagnostico\\&amp;quot;]\\n    end\\n\\n    subgraph Comite[\\&amp;quot;Comite BAERA\\&amp;quot;]\\n        P8[\\&amp;quot;P8: Decision Final&amp;lt;br&amp;gt;Revision de informes consolidados\\&amp;quot;]\\n    end\\n\\n    subgraph Final[\\&amp;quot;Resolucion\\&amp;quot;]\\n        P9[\\&amp;quot;P9: Beca Aprobada\\&amp;quot;]\\n        P10[\\&amp;quot;P10: Beca Rechazada\\&amp;quot;]\\n    end\\n\\n    P1 --&amp;gt;|siguiente| P2\\n    P2 --&amp;gt;|siguiente| P3\\n    P3 --&amp;gt;|siguiente| P4\\n    P4 --&amp;gt;|aprobado| P5\\n    P4 --&amp;gt;|observado| P3\\n    P5 --&amp;gt;|auto| P6\\n    P6 --&amp;gt;|siguiente| P7\\n    P7 --&amp;gt;|siguiente| P8\\n    P8 --&amp;gt;|aprobado| P9\\n    P8 --&amp;gt;|rechazado| P10\\n    P9 --&amp;gt; FIN([Fin])\\n    P10 --&amp;gt; FIN\\n\\n    style INICIO fill:#1a1a2e,color:#fff,stroke:#1a1a2e\\n    style FIN fill:#1a1a2e,color:#fff,stroke:#1a1a2e\\n    style P1 fill:#e8f4fd,stroke:#2980b9\\n    style P2 fill:#e8f4fd,stroke:#2980b9\\n    style P3 fill:#e8f4fd,stroke:#2980b9\\n    style P4 fill:#fef9e7,stroke:#f39c12\\n    style P5 fill:#e8f8f5,stroke:#1abc9c\\n    style P6 fill:#f5eef8,stroke:#9b59b6\\n    style P7 fill:#f5eef8,stroke:#9b59b6\\n    style P8 fill:#fdedec,stroke:#e74c3c\\n    style P9 fill:#d5f5e3,stroke:#27ae60\\n    style P10 fill:#fadbd8,stroke:#e74c3c\\n    style Estudiante fill:none,stroke:#2980b9,stroke-dasharray:5 5\\n    style Bienestar fill:none,stroke:#f39c12,stroke-dasharray:5 5\\n    style Auto fill:none,stroke:#1abc9c,stroke-dasharray:5 5\\n    style Trabajo fill:none,stroke:#9b59b6,stroke-dasharray:5 5\\n    style Nutricion fill:none,stroke:#9b59b6,stroke-dasharray:5 5\\n    style Comite fill:none,stroke:#e74c3c,stroke-dasharray:5 5\\n    style Final fill:none,stroke:#27ae60,stroke-dasharray:5 5\\n    linkStyle default stroke:#666,stroke-width:2px\\n&amp;quot;}}\n        id=\&quot;2\&quot;&gt;\n          &lt;mxCell style=\&quot;mermaid;html=1;pointerEvents=0;whiteSpace=wrap;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry width=\&quot;760\&quot; height=\&quot;620\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;\n&quot;}"></div>
     </div>
 
     <div class="info-cards">
         <div class="card">
-            <span class="badge badge-blue">👤 P1 - Estudiante</span>
+            <span class="badge badge-blue">P1 - Estudiante</span>
             <h3>Registro del postulante</h3>
             <p>Datos personales: CI, RU, nombres, carrera, facultad.</p>
         </div>
         <div class="card">
-            <span class="badge badge-blue">👤 P2 - Estudiante</span>
-            <h3>Datos socioeconómicos</h3>
-            <p>Dirección, ingresos familiares, tipo de vivienda, etc.</p>
+            <span class="badge badge-blue">P2 - Estudiante</span>
+            <h3>Datos socioeconomicos</h3>
+            <p>Direccion, ingresos familiares, tipo de vivienda, etc.</p>
         </div>
         <div class="card">
-            <span class="badge badge-blue">👤 P3 - Estudiante</span>
+            <span class="badge badge-blue">P3 - Estudiante</span>
             <h3>Adjuntar documentos</h3>
-            <p>11 documentos requeridos (cédula, certificados, etc.)</p>
+            <p>11 documentos requeridos (cedula, certificados, etc.)</p>
         </div>
         <div class="card">
-            <span class="badge badge-orange">🔍 P4 - Bienestar Social</span>
-            <h3>Revisión documental</h3>
-            <p>Checklist por documento. ✅ Correcto o ❌ Observado (vuelve a P3).</p>
+            <span class="badge badge-orange">P4 - Bienestar Social</span>
+            <h3>Revision documental</h3>
+            <p>Checklist por documento. Correcto o Observado (vuelve a P3).</p>
         </div>
         <div class="card">
-            <span class="badge badge-green">⚙️ P5 - Sistema</span>
+            <span class="badge badge-green">P5 - Sistema</span>
             <h3>Programar entrevista</h3>
-            <p>Asignación automática de cita con trabajador social (+1 día).</p>
+            <p>Asignacion automatica de cita con trabajador social (+1 dia).</p>
         </div>
         <div class="card">
-            <span class="badge badge-purple">🤝 P6 - Trabajador Social</span>
-            <h3>Entrevista socioeconómica</h3>
-            <p>Evaluación social y recomendación.</p>
+            <span class="badge badge-purple">P6 - Trabajador Social</span>
+            <h3>Entrevista socioeconomica</h3>
+            <p>Evaluacion social y recomendacion.</p>
         </div>
         <div class="card">
-            <span class="badge badge-purple">🥗 P7 - Nutricionista</span>
+            <span class="badge badge-purple">P7 - Nutricionista</span>
             <h3>Control nutricional</h3>
-            <p>Peso, talla, IMC, diagnóstico nutricional.</p>
+            <p>Peso, talla, IMC, diagnostico nutricional.</p>
         </div>
         <div class="card">
-            <span class="badge badge-red">📋 P8 - Comité BAERA</span>
-            <h3>Decisión final</h3>
-            <p>Revisa informes consolidados y determina aprobación o rechazo.</p>
+            <span class="badge badge-red">P8 - Comite BAERA</span>
+            <h3>Decision final</h3>
+            <p>Revisa informes consolidados y determina aprobacion o rechazo.</p>
         </div>
         <div class="card">
-            <span class="badge badge-success">✅ P9 - Aprobada</span>
+            <span class="badge badge-success">P9 - Aprobada</span>
             <h3>Beca aprobada</h3>
-            <p>Notificación al estudiante.</p>
+            <p>Notificacion al estudiante.</p>
         </div>
         <div class="card">
-            <span class="badge badge-danger">❌ P10 - Rechazada</span>
+            <span class="badge badge-danger">P10 - Rechazada</span>
             <h3>Beca rechazada</h3>
-            <p>Notificación al estudiante.</p>
+            <p>Notificacion al estudiante.</p>
         </div>
     </div>
 
-    <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            securityLevel: 'loose',
-            themeVariables: {
-                primaryColor: '#1a1a2e',
-                primaryTextColor: '#fff',
-                primaryBorderColor: '#1a1a2e',
-                lineColor: '#666',
-                secondaryColor: '#e8f4fd',
-                tertiaryColor: '#f0f2f5',
-                fontFamily: 'Arial, sans-serif'
-            }
-        });
-    </script>
+    <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 </body>
 </html>
