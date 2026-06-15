@@ -2,13 +2,13 @@
 
 Tres tareas unificadas en una sola página web:
 
-- **🎮 Baile Sincronizado** — Juego interactivo en Unity WebGL
-- **🏛️ Fotogrametría 3D** — Visualizador de modelo 3D (GLB) con model-viewer
-- **📋 TramiteBeca** — Sistema de flujo de solicitud de becas (PHP + diagrama Mermaid)
+- **Baile Sincronizado** — Juego interactivo en Unity WebGL
+- **Fotogrametria 3D** — Visualizador de modelo 3D (GLB) con model-viewer
+- **TramiteBeca** — Sistema de flujo de solicitud de becas (PHP + diagrama Mermaid)
 
 ---
 
-## 📦 Descargar el proyecto
+## Descargar el proyecto
 
 ```bash
 git clone https://github.com/AlejandroRBC/Proyecto_Multimedia.git
@@ -17,35 +17,31 @@ cd Proyecto_Multimedia
 
 ---
 
-## 🖥️ Ver la página principal (Unity, Fotogrametría, diagrama)
+## Ver la pagina principal (Unity, Fotogrametria, diagrama)
 
-Las partes estáticas (página principal, Unity WebGL, visor 3D y diagrama de flujo) se pueden servir con cualquier servidor estático.
+Las partes estaticas (pagina principal, Unity WebGL, visor 3D y diagrama de flujo) se pueden servir con cualquier servidor estatico.
 
-### Opción 1 — Python (recomendado)
+### Python
 
 ```bash
-# Windows
 python -m http.server 8000
-
-# Linux/macOS
-python3 -m http.server 8000
 ```
 
 Luego abre http://localhost:8000 en tu navegador.
 
-### Opción 2 — Node.js
+### Node.js
 
 ```bash
 npx serve .
 ```
 
-### Opción 3 — VS Code (Live Server)
+### VS Code (Live Server)
 
-Instala la extensión **Live Server** y haz clic derecho en `index.html` > "Open with Live Server".
+Instala la extension **Live Server** y haz clic derecho en `index.html` > "Open with Live Server".
 
 ---
 
-## 🐘 TramiteBeca — Versión funcional con PHP
+## TramiteBeca — Version funcional con PHP
 
 El módulo **TramiteBeca** requiere PHP y un servidor Apache (XAMPP). Los archivos PHP interactúan con archivos JSON locales para el flujo de solicitud de becas.
 
@@ -62,7 +58,7 @@ El módulo **TramiteBeca** requiere PHP y un servidor Apache (XAMPP). Los archiv
    http://localhost/TramiteBeca/login.php
    ```
 
-### Usuarios de prueba (según `data/usuarios.json`)
+### Usuarios de prueba (segun `data/usuarios.json`)
 
 | Usuario | Contraseña | Rol |
 |---------|-----------|-----|
@@ -74,7 +70,7 @@ El módulo **TramiteBeca** requiere PHP y un servidor Apache (XAMPP). Los archiv
 
 ---
 
-## 🌐 GitHub Pages
+## GitHub Pages
 
 La página principal (con Unity, Fotogrametría y diagrama de flujo) está publicada en:
 
@@ -84,7 +80,7 @@ https://alejandrorbc.github.io/Proyecto_Multimedia/
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 Proyecto_Multimedia/
