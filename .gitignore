@@ -1,0 +1,14 @@
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# PHP uploads (user-submitted files)
+TramiteBeca/uploads/*
+!TramiteBeca/uploads/.gitkeep
+
+# Temp files
+*.tmp
+*.swp
+*.swo
+*~
