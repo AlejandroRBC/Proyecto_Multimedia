@@ -2,47 +2,436 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea de Fotogrametría 3D</title>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visor 3D — GLB</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h1 {
-            margin-bottom: 10px;
-            font-size: 24px;
-            color: #333;
-        }
+    :root {
+      --bg: #0d0d0f;
+      --surface: #16161a;
+      --border: #2a2a30;
+      --accent: #7c6cfc;
+      --accent-dim: rgba(124, 108, 252, 0.15);
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --mono: 'Courier New', monospace;
+    }
 
-        /* Configuración del tamaño del visor 3D */
-        model-viewer {
-            width: 80%;
-            height: 70vh;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    header h1 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .file-name {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    /* ── Canvas area ── */
+    #canvas-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ── Drop overlay ── */
+    #drop-zone {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: var(--bg);
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    #drop-zone.hidden {
+      display: none;
+    }
+
+    /* ── Controls HUD ── */
+    #hud {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      background: rgba(22, 22, 26, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 12px;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+    }
+
+    .hud-hint {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .key {
+      background: var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text);
+    }
+
+    /* ── Top-right controls ── */
+    #top-controls {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 6px;
+      z-index: 5;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      background: rgba(22, 22, 26, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: var(--muted);
+      transition: color 0.2s, border-color 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .icon-btn:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .icon-btn.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── Loading bar ── */
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(13, 13, 15, 0.9);
+      z-index: 20;
+    }
+
+    #loading.show {
+      display: flex;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #loading p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── Error toast ── */
+    #toast {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #3a1a1a;
+      border: 1px solid #7a2a2a;
+      color: #ff8a8a;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: none;
+      z-index: 30;
+    }
+
+    #toast.show {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Resultado de Fotogrametría 3D</h1>
-    <p>Usa el ratón para rotar y la rueda para hacer zoom</p>
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 16 16" fill="none">
+        <path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+      </svg>
+    </div>
+    <h1>Visor 3D</h1>
+    <span class="file-name" id="file-label">sin archivo</span>
+  </header>
 
-    <model-viewer src="mi_modelo.glb" ar camera-controls touch-action="pan-y" shadow-intensity="1">
-    </model-viewer>
+  <div id="canvas-wrap">
+    <!-- Loading -->
+    <div id="loading">
+      <div class="spinner"></div>
+      <p>Cargando modelo…</p>
+    </div>
+
+    <!-- Error toast -->
+    <div id="toast"></div>
+
+    <!-- Top-right buttons -->
+    <div id="top-controls" style="display:none">
+      <button class="icon-btn" id="btn-wire" title="Wireframe">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="12 2 22 20 2 20" />
+        </svg>
+      </button>
+      <button class="icon-btn" id="btn-reset" title="Resetear cámara">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+          <path d="M3 3v5h5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- HUD hints -->
+    <div id="hud" style="display:none">
+      <span class="hud-hint"><span class="key">🖱 drag</span> rotar</span>
+      <span class="hud-hint" style="margin: 0 4px; color:#2a2a30">|</span>
+      <span class="hud-hint"><span class="key">scroll</span> zoom</span>
+      <span class="hud-hint" style="margin: 0 4px; color:#2a2a30">|</span>
+      <span class="hud-hint"><span class="key">click der</span> mover</span>
+    </div>
+  </div>
+
+  <!-- Three.js + GLTFLoader via CDN -->
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+    import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+    // ── Scene setup ──
+    const wrap = document.getElementById('canvas-wrap');
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    wrap.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0d0d0f);
+
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 1000);
+    camera.position.set(3, 2, 4);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.07;
+
+    // ── Lights ──
+    const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambient);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    keyLight.position.set(5, 8, 5);
+    keyLight.castShadow = true;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x8899ff, 0.8);
+    fillLight.position.set(-4, 2, -4);
+    scene.add(fillLight);
+
+    // Subtle grid
+    const grid = new THREE.GridHelper(20, 40, 0x2a2a30, 0x1e1e24);
+    grid.position.y = -0.001;
+    scene.add(grid);
+
+    // ── Resize ──
+    function resize() {
+      const w = wrap.clientWidth;
+      const h = wrap.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // ── Animate ──
+    let currentModel = null;
+    let wireMode = false;
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    })();
+
+    // ── Load GLB ──
+    const loader = new GLTFLoader();
+
+    function loadGLB(url, name) {
+      document.getElementById('loading').classList.add('show');
+
+      loader.load(url, (gltf) => {
+        if (currentModel) scene.remove(currentModel);
+
+        currentModel = gltf.scene;
+
+        currentModel.traverse(n => {
+          if (n.isMesh) {
+            n.castShadow = true;
+            n.receiveShadow = true;
+          }
+        });
+
+        // Fit camera to model
+        const box = new THREE.Box3().setFromObject(currentModel);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+
+        currentModel.position.sub(center);
+
+        const dist = maxDim * 2.2;
+        camera.position.set(dist * 0.6, dist * 0.4, dist);
+        camera.near = maxDim * 0.001;
+        camera.far = maxDim * 100;
+        camera.updateProjectionMatrix();
+
+        controls.target.set(0, 0, 0);
+        controls.maxDistance = maxDim * 10;
+        controls.minDistance = maxDim * 0.05;
+        controls.update();
+
+        scene.add(currentModel);
+
+        document.getElementById('loading').classList.remove('show');
+        document.getElementById('top-controls').style.display = 'flex';
+        document.getElementById('hud').style.display = 'flex';
+        document.getElementById('file-label').textContent = name;
+
+      }, undefined, (err) => {
+        console.error(err);
+        document.getElementById('loading').classList.remove('show');
+        showToast('No se pudo cargar mi_modelo.glb — ¿está en la misma carpeta?');
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 5000);
+    }
+
+    // ── Auto-cargar el modelo estático ──
+    loadGLB('mi_modelo.glb', 'mi_modelo.glb');
+
+    // ── Wireframe toggle ──
+    document.getElementById('btn-wire').addEventListener('click', () => {
+      wireMode = !wireMode;
+      document.getElementById('btn-wire').classList.toggle('active', wireMode);
+      if (currentModel) {
+        currentModel.traverse(n => {
+          if (n.isMesh) n.material.wireframe = wireMode;
+        });
+      }
+    });
+
+    // ── Reset camera ──
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (!currentModel) return;
+      const box = new THREE.Box3().setFromObject(currentModel);
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const dist = maxDim * 2.2;
+      camera.position.set(dist * 0.6, dist * 0.4, dist);
+      controls.target.set(0, 0, 0);
+      controls.update();
+    });
+  </script>
 
 </body>
 
